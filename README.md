@@ -5,6 +5,12 @@ This OpenCart API has been developed to interact with OpenCart stores. The API e
 
 ---
 
+## Running Tests
+
+To run tests, run the following command
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/26923173-77bae4f1-db49-48ed-aa6c-b731efd47067?action=collection%2Ffork&collection-url=entityId%3D26923173-77bae4f1-db49-48ed-aa6c-b731efd47067%26entityType%3Dcollection%26workspaceId%3D515b4ce9-9498-4aec-985a-a219e1b5ebb4)
+
 ## API Endpoints for Category
 
 The following API endpoints are available for managing category related data:
@@ -468,5 +474,15 @@ The following API endpoints are available for managing whishlist related data:
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
 | `customer_id`| `string` | Returns the total number of wishlists for the customer with the specified customer ID. |
+
+
+## Support
+
+For support, email support@erolislen.com.tr
+
+## Feedback
+
+If you have any feedback, please reach out to us at support@erolislen.com.tr
+
 
 
