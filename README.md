@@ -1,4 +1,39 @@
 
+
+## API Endpoints for Category
+
+The following API endpoints are available for managing category related data:
+
+#### Get Category Details or List of Category
+
+```http
+  GET /api/rest/category
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `category_id`| `string` | Belirtilen kategori ID'sine sahip kategorinin ayrıntılarını alır. |
+
+#### Get List of Categories
+
+```http
+  GET /api/rest/categories
+```
+
+Mağazadaki tüm kategorilerin listesini alır.
+
+#### Deleting Category Data
+
+```http
+  DELETE /api/rest/category
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `category_id`| `string` | Belirtilen kategori ID'sine sahip kategoriyi siler.      |
+
+
+
 ## API Endpoints for Localisation
 
 The following API endpoints are available for managing localisation related data:
