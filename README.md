@@ -4,7 +4,7 @@
 
 The following API endpoints are available for managing category related data:
 
-#### Get Category Details or List of Category
+#### Get Category Details
 
 ```http
   GET /api/rest/category
@@ -20,7 +20,12 @@ The following API endpoints are available for managing category related data:
   GET /api/rest/categories
 ```
 
-Mağazadaki tüm kategorilerin listesini alır.
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `status` `orderby` `sort` `limit`| `string` | Mağazadaki tüm kategorilerin listesini alır.|
+
+
 
 #### Deleting Category Data
 
@@ -28,9 +33,56 @@ Mağazadaki tüm kategorilerin listesini alır.
   DELETE /api/rest/category
 ```
 
+| Parameter    | Type     | Description                |
+| :--------    | :------- | :------------------------- |
+| `category_id`| `string` | Belirtilen kategori ID'sine sahip kategoriyi siler.      |
+
+
+
+## API Endpoints for Customer
+
+The following API endpoints are available for managing customer related data:
+
+#### Get Customer Details
+
+```http
+  GET /api/rest/customer
+```
+
+| Parameter    | Type     | Description                |
+| :--------    | :------- | :------------------------- |
+| `customer_id`| `string` | Belirtilen müşteri ID'sine sahip müşterinin ayrıntılarını alır.|
+
+#### Get Customer By Email
+
+```http
+  GET api/rest/customer/getCustomerByEmail
+```
+
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `category_id`| `string` | Belirtilen kategori ID'sine sahip kategoriyi siler.      |
+| `email`     | `string` | Mağazadaki tüm müşterilerin listesini alır.|
+
+
+#### Get Customers
+
+```http
+  GET api/rest/customer/getCustomers
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `status` `orderby` `sort` `limit`| `string` | Belirtilen e-posta adresine sahip müşterinin ayrıntılarını alır.|
+
+#### Delete Customer
+
+```http
+  DELETE /api/rest/customer/deleteCustomer
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `customer_id`| `string` | Belirtilen müşteri ID'sine sahip müşteriyi siler.    |
 
 
 
@@ -38,7 +90,7 @@ Mağazadaki tüm kategorilerin listesini alır.
 
 The following API endpoints are available for managing localisation related data:
 
-#### Get Country Details or List of Countries
+#### Get Country Details
 
 ```http
   GET /api/rest/localisation/getCountry
@@ -54,10 +106,12 @@ The following API endpoints are available for managing localisation related data
   GET /api/rest/localisation/getCountries
 ```
 
-Mağazadaki tüm ülkelerin listesini döndürür.
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `status` `orderby` `sort` `limit`| `string` | Mağazadaki tüm ülkelerin listesini döndürür.|
 
-#### Get Zone Details or List of Zones
 
+#### Get Zone Details
 ```http
   GET /api/rest/localisation/getZone
 ```
@@ -93,9 +147,13 @@ Mağazadaki tüm ülkelerin listesini döndürür.
   GET /api/rest/localisation/getCurrencies
 ```
 
-This endpoint returns a list of all the currencies in the store.
 
-#### Get Language Details by Code or List of Languages
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `status` `orderby` `sort` `limit`| `string` | This endpoint returns a list of all the currencies in the store.|
+
+
+#### Get Language Details
 
 ```http
   GET /api/rest/localisation/getLanguage
@@ -111,7 +169,10 @@ This endpoint returns a list of all the currencies in the store.
   GET /api/rest/localisation/getLanguages
 ```
 
-This endpoint returns a list of all the languages in the store.
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `status` `orderby` `sort` `limit`| `string` | This endpoint returns a list of all the languages in the store.|
+
 
 #### Get Order Status Details by ID or List of Order Statuses
 
