@@ -84,6 +84,25 @@ The following API endpoints are available for managing customer related data:
 | :--------   | :------- | :------------------------- |
 | `customer_id`| `string` | Belirtilen müşteri ID'sine sahip müşteriyi siler.    |
 
+#### Get Customer Group Details
+
+```http
+  GET /api/rest/customer/getCustomerGroup
+```
+
+| Parameter    | Type     | Description                |
+| :--------    | :------- | :------------------------- |
+| `customer_group_id`| `string` | Belirtilen müşteri grubu ID'sine sahip müşteri grubunun ayrıntılarını alır.|
+
+#### Get Customer Groups
+
+```http
+  GET api/rest/customer/getCustomerGroups
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `orderby` `sort` `limit`| `string` | Mağazadaki tüm müşteri gruplarının listesini alır.|
 
 
 ## API Endpoints for Localisation
@@ -128,7 +147,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `country_id` | `string`| This endpoint returns a list of all the zones for the specified country.     |
+| `country_id` | `string`| Belirtilen ülke ID'sine sahip tüm bölgelerin listesini döndürür.     |
 
 
 #### Get Currency Details by Code or List of Currencies
@@ -139,7 +158,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `code`       | `string`| This endpoint returns the details of the currency with the specified code.     |
+| `code`       | `string`| Belirtilen para birimi koduna sahip para biriminin ayrıntılarını alır.   |
 
 #### Get List of Currencies
 
@@ -150,7 +169,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `status` `orderby` `sort` `limit`| `string` | This endpoint returns a list of all the currencies in the store.|
+| `status` `orderby` `sort` `limit`| `string` | 	Mağazadaki tüm para birimlerinin listesini döndürür.|
 
 
 #### Get Language Details
@@ -161,7 +180,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `code`       | `string`| This endpoint returns the details of the language with the specified code.
+| `code`       | `string`| Belirtilen dil koduna sahip dilin ayrıntılarını alır.
 
 #### Get List of Languages
 
@@ -171,7 +190,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `status` `orderby` `sort` `limit`| `string` | This endpoint returns a list of all the languages in the store.|
+| `status` `orderby` `sort` `limit`| `string` | Mağazadaki tüm dillerin listesini döndürür.|
 
 
 #### Get Order Status Details by ID or List of Order Statuses
@@ -182,7 +201,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `order_status_id`| `string`| This endpoint returns the details of the order status with the specified ID.
+| `order_status_id`| `string`| Belirtilen sipariş durumu ID'sine sahip sipariş durumunun ayrıntılarını alır.|
 
 
 #### Get List of Order Statuses
@@ -191,4 +210,114 @@ The following API endpoints are available for managing localisation related data
   GET /api/rest/localisation/getOrderStatuses
 ```
 
-This endpoint returns a list of all the order statuses in the store.
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `language_id` `orderby` `sort` `limit`| `string` | Mağazadaki tüm sipariş durumlarının listesini döndürür.|
+
+ 
+
+## API Endpoints for Manufacturer
+
+The following API endpoints are available for managing manufacturer related data:
+
+#### Get Manufacturer Details
+
+```http
+  GET /api/rest/manufacturer/getManufacturer
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `manufacturer_id`| `string` | Belirtilen üretici ID'sine sahip üreticinin ayrıntılarını alır.  |
+
+#### Get List of Manufacturers
+
+```http
+  GET /api/rest/manufacturer/getManufacturers
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `status` `orderby` `sort` `limit`| `string` | Mağazadaki tüm üreticilerin listesini alır.|
+
+
+#### Get Total Manufacturers
+```http
+  GET /api/rest/manufacturer/getTotalManufacturers
+```
+
+Mağazadaki tüm üreticilerin toplam sayısını döndürür.
+
+#### Get List of Zones for a Country
+
+```http
+  DELETE /api/rest/manufacturer/deleteManufacturer
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `manufacturer_id` | `string`| Belirtilen üretici ID'sine sahip üreticiyi siler.     |
+
+
+## API Endpoints for Order
+
+The following API endpoints are available for managing order related data:
+
+#### Get Order Details
+
+```http
+  GET /api/rest/order/getOrder
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `order_id`| `string` | Retrieves the details of the specified order.  |
+
+#### Get List of Orders
+
+```http
+  GET /api/rest/order/getOrders
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `order_status` `orderby` `sort` `limit` `start_date` `end_date`|  `string` | Retrieves a list of all orders in the store..|
+
+
+#### Get Order Products
+```http
+  GET /api/rest/order/getOrderProducts
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `order_id`| `string` | Retrieves the products associated with the specified order.  |
+
+#### Get Order Options
+
+```http
+  GET /api/rest/order/getOrderOptions
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `order_id` `order_product_id` | `string`| Retrieves the options associated with the specified order.   |
+
+
+#### Get Order Totals
+```http
+  GET /api/rest/order/getOrderTotals
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `order_id`| `string` | Retrieves the totals associated with the specified order.  |
+
+#### Delete Order
+```http
+  DELETE /api/rest/order/deleteOrder
+```
+
+| Parameter   | Type     | Description                |
+| :--------   | :------- | :------------------------- |
+| `order_id`| `string` | Deletes the specified order. |
