@@ -12,12 +12,12 @@ class ControllerApiRestCustomer extends Controller {
 			if (isset($this->request->get['customer_id'])) {
 
 				$this->load->model('account/customer');
-				$this->load->model('account/address');
+				$this->load->model('rest/api');
 
 				$customer = $this->model_account_customer->getCustomer($this->request->get['customer_id']);
 	
 				if ($customer) {
-					$addresses = $this->model_account_address->getCustomerAddresses($customer['customer_id']);
+					$addresses = $this->model_rest_api->getCustomerAddresses($customer['customer_id']);
 					
 					$customer_data = array(
 						'customer_id' => $customer['customer_id'],
