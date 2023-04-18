@@ -12,7 +12,7 @@ The following API endpoints are available for managing category related data:
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `category_id`| `string` | Belirtilen kategori ID'sine sahip kategorinin ayrıntılarını alır. |
+| `category_id`| `string` | Get the details of the category with the specified category ID.|
 
 #### Get Categories
 
@@ -23,7 +23,7 @@ The following API endpoints are available for managing category related data:
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `status` `orderby` `sort` `limit`| `string` | Mağazadaki tüm kategorilerin listesini alır.|
+| `status` `orderby` `sort` `limit`| `string` | Get the list of all categories in the store.|
 
 
 
@@ -35,7 +35,7 @@ The following API endpoints are available for managing category related data:
 
 | Parameter    | Type     | Description                |
 | :--------    | :------- | :------------------------- |
-| `category_id`| `string` | Belirtilen kategori ID'sine sahip kategoriyi siler.      |
+| `category_id`| `string` | Delete the category with the specified category ID.  |
 
 
 
@@ -51,7 +51,7 @@ The following API endpoints are available for managing customer related data:
 
 | Parameter    | Type     | Description                |
 | :--------    | :------- | :------------------------- |
-| `customer_id`| `string` | Belirtilen müşteri ID'sine sahip müşterinin ayrıntılarını alır.|
+| `customer_id`| `string` | Get the details of the customer with the specified customer ID.|
 
 #### Get Customer By Email
 
@@ -61,7 +61,7 @@ The following API endpoints are available for managing customer related data:
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `email`     | `string` | Mağazadaki tüm müşterilerin listesini alır.|
+| `email`     | `string` | Get the details of the customer with the specified email address.|
 
 
 #### Get Customers
@@ -72,7 +72,7 @@ The following API endpoints are available for managing customer related data:
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `status` `orderby` `sort` `limit`| `string` | Belirtilen e-posta adresine sahip müşterinin ayrıntılarını alır.|
+| `status` `orderby` `sort` `limit`| `string` | Get the list of all customers in the store.|
 
 #### Delete Customer
 
@@ -82,7 +82,7 @@ The following API endpoints are available for managing customer related data:
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `customer_id`| `string` | Belirtilen müşteri ID'sine sahip müşteriyi siler.    |
+| `customer_id`| `string` | Delete the customer with the specified customer ID.  |
 
 #### Get Customer Group
 
@@ -92,7 +92,7 @@ The following API endpoints are available for managing customer related data:
 
 | Parameter    | Type     | Description                |
 | :--------    | :------- | :------------------------- |
-| `customer_group_id`| `string` | Belirtilen müşteri grubu ID'sine sahip müşteri grubunun ayrıntılarını alır.|
+| `customer_group_id`| `string` | Get the details of the customer group with the specified customer group ID.|
 
 #### Get Customer Groups
 
@@ -102,7 +102,7 @@ The following API endpoints are available for managing customer related data:
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `orderby` `sort` `limit`| `string` | Mağazadaki tüm müşteri gruplarının listesini alır.|
+| `orderby` `sort` `limit`| `string` | Get the list of all customer groups in the store.|
 
 
 ## API Endpoints for Localisation
@@ -117,7 +117,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `country_id`| `string` | Belirtilen ülke ID'sine sahip ülkenin ayrıntılarını alır  |
+| `country_id`| `string` | Get the details of the country with the specified country ID. |
 
 #### Get Countries
 
@@ -127,7 +127,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `status` `orderby` `sort` `limit`| `string` | Mağazadaki tüm ülkelerin listesini döndürür.|
+| `status` `orderby` `sort` `limit`| `string` | Get the list of all countries in the store.|
 
 
 #### Get Zone
@@ -137,7 +137,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `zone_id`    | `string` | Belirtilen bölge ID'sine sahip bölgenin ayrıntılarını alır      |
+| `zone_id`    | `string` | Get the details of the region with the specified region ID.  |
 
 #### Get Zones By Country Id
 
@@ -147,7 +147,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `country_id` | `string`| Belirtilen ülke ID'sine sahip tüm bölgelerin listesini döndürür.     |
+| `country_id` | `string`| Get the list of all regions in the specified country ID.  |
 
 
 #### Get Currency By Code
@@ -158,7 +158,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `code`       | `string`| Belirtilen para birimi koduna sahip para biriminin ayrıntılarını alır.   |
+| `code`       | `string`| Get the details of the currency with the specified currency code.  |
 
 #### Get Currencies
 
@@ -169,7 +169,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `status` `orderby` `sort` `limit`| `string` | 	Mağazadaki tüm para birimlerinin listesini döndürür.|
+| `status` `orderby` `sort` `limit`| `string` | Get the list of all currencies in the store.|
 
 
 #### Get Language
@@ -180,7 +180,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `code`       | `string`| Belirtilen dil koduna sahip dilin ayrıntılarını alır.
+| `code`       | `string`| Get the details of the language with the specified language code.|
 
 #### Get Languages
 
@@ -190,7 +190,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `status` `orderby` `sort` `limit`| `string` | Mağazadaki tüm dillerin listesini döndürür.|
+| `status` `orderby` `sort` `limit`| `string` | Get the list of all languages in the store.|
 
 
 #### Get Order Status
@@ -201,7 +201,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `order_status_id`| `string`| Belirtilen sipariş durumu ID'sine sahip sipariş durumunun ayrıntılarını alır.|
+| `order_status_id`| `string`| Get the details of the order status with the specified order status ID.|
 
 
 #### Get Order Statuses
@@ -212,7 +212,7 @@ The following API endpoints are available for managing localisation related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `language_id` `orderby` `sort` `limit`| `string` | Mağazadaki tüm sipariş durumlarının listesini döndürür.|
+| `language_id` `orderby` `sort` `limit`| `string` | Get the list of all order statuses in the store.|
 
  
 
@@ -228,7 +228,7 @@ The following API endpoints are available for managing manufacturer related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `manufacturer_id`| `string` | Belirtilen üretici ID'sine sahip üreticinin ayrıntılarını alır.  |
+| `manufacturer_id`| `string` | Get the details of the manufacturer with the specified manufacturer ID. |
 
 #### Get Manufacturers
 
@@ -238,7 +238,7 @@ The following API endpoints are available for managing manufacturer related data
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `status` `orderby` `sort` `limit`| `string` | Mağazadaki tüm üreticilerin listesini alır.|
+| `status` `orderby` `sort` `limit`| `string` | Get the list of all manufacturers in the store.|
 
 
 #### Get Total Manufacturers
@@ -246,7 +246,7 @@ The following API endpoints are available for managing manufacturer related data
   GET /api/rest/manufacturer/getTotalManufacturers
 ```
 
-Mağazadaki tüm üreticilerin toplam sayısını döndürür.
+Get the total number of manufacturers in the store.
 
 #### Delete Manufacturer
 
@@ -256,7 +256,7 @@ Mağazadaki tüm üreticilerin toplam sayısını döndürür.
 
 | Parameter   | Type     | Description                |
 | :--------   | :------- | :------------------------- |
-| `manufacturer_id` | `string`| Belirtilen üretici ID'sine sahip üreticiyi siler.     |
+| `manufacturer_id` | `string`| Delete the manufacturer with the specified manufacturer ID. |
 
 
 ## API Endpoints for Order
