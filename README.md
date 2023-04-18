@@ -4,7 +4,7 @@
 
 The following API endpoints are available for managing category related data:
 
-#### Get Category Details
+#### Get Category
 
 ```http
   GET /api/rest/category
@@ -14,7 +14,7 @@ The following API endpoints are available for managing category related data:
 | :--------   | :------- | :------------------------- |
 | `category_id`| `string` | Belirtilen kategori ID'sine sahip kategorinin ayrıntılarını alır. |
 
-#### Get List of Categories
+#### Get Categories
 
 ```http
   GET /api/rest/categories
@@ -27,7 +27,7 @@ The following API endpoints are available for managing category related data:
 
 
 
-#### Deleting Category Data
+#### Delete Category
 
 ```http
   DELETE /api/rest/category
@@ -43,7 +43,7 @@ The following API endpoints are available for managing category related data:
 
 The following API endpoints are available for managing customer related data:
 
-#### Get Customer Details
+#### Get Customer
 
 ```http
   GET /api/rest/customer
@@ -84,7 +84,7 @@ The following API endpoints are available for managing customer related data:
 | :--------   | :------- | :------------------------- |
 | `customer_id`| `string` | Belirtilen müşteri ID'sine sahip müşteriyi siler.    |
 
-#### Get Customer Group Details
+#### Get Customer Group
 
 ```http
   GET /api/rest/customer/getCustomerGroup
@@ -109,7 +109,7 @@ The following API endpoints are available for managing customer related data:
 
 The following API endpoints are available for managing localisation related data:
 
-#### Get Country Details
+#### Get Country
 
 ```http
   GET /api/rest/localisation/getCountry
@@ -119,7 +119,7 @@ The following API endpoints are available for managing localisation related data
 | :--------   | :------- | :------------------------- |
 | `country_id`| `string` | Belirtilen ülke ID'sine sahip ülkenin ayrıntılarını alır  |
 
-#### Get List of Countries
+#### Get Countries
 
 ```http
   GET /api/rest/localisation/getCountries
@@ -130,7 +130,7 @@ The following API endpoints are available for managing localisation related data
 | `status` `orderby` `sort` `limit`| `string` | Mağazadaki tüm ülkelerin listesini döndürür.|
 
 
-#### Get Zone Details
+#### Get Zone
 ```http
   GET /api/rest/localisation/getZone
 ```
@@ -139,7 +139,7 @@ The following API endpoints are available for managing localisation related data
 | :--------   | :------- | :------------------------- |
 | `zone_id`    | `string` | Belirtilen bölge ID'sine sahip bölgenin ayrıntılarını alır      |
 
-#### Get List of Zones for a Country
+#### Get Zones By Country Id
 
 ```http
   GET /api/rest/localisation/getZonesByCountryId
@@ -150,7 +150,7 @@ The following API endpoints are available for managing localisation related data
 | `country_id` | `string`| Belirtilen ülke ID'sine sahip tüm bölgelerin listesini döndürür.     |
 
 
-#### Get Currency Details by Code or List of Currencies
+#### Get Currency By Code
 
 ```http
   GET /api/rest/localisation/getCurrencyByCode
@@ -160,7 +160,7 @@ The following API endpoints are available for managing localisation related data
 | :--------   | :------- | :------------------------- |
 | `code`       | `string`| Belirtilen para birimi koduna sahip para biriminin ayrıntılarını alır.   |
 
-#### Get List of Currencies
+#### Get Currencies
 
 ```http
   GET /api/rest/localisation/getCurrencies
@@ -172,7 +172,7 @@ The following API endpoints are available for managing localisation related data
 | `status` `orderby` `sort` `limit`| `string` | 	Mağazadaki tüm para birimlerinin listesini döndürür.|
 
 
-#### Get Language Details
+#### Get Language
 
 ```http
   GET /api/rest/localisation/getLanguage
@@ -182,7 +182,7 @@ The following API endpoints are available for managing localisation related data
 | :--------   | :------- | :------------------------- |
 | `code`       | `string`| Belirtilen dil koduna sahip dilin ayrıntılarını alır.
 
-#### Get List of Languages
+#### Get Languages
 
 ```http
   GET /api/rest/localisation/getLanguages
@@ -193,7 +193,7 @@ The following API endpoints are available for managing localisation related data
 | `status` `orderby` `sort` `limit`| `string` | Mağazadaki tüm dillerin listesini döndürür.|
 
 
-#### Get Order Status Details by ID or List of Order Statuses
+#### Get Order Status
 
 ```http
   GET /api/rest/localisation/getOrderStatus
@@ -204,7 +204,7 @@ The following API endpoints are available for managing localisation related data
 | `order_status_id`| `string`| Belirtilen sipariş durumu ID'sine sahip sipariş durumunun ayrıntılarını alır.|
 
 
-#### Get List of Order Statuses
+#### Get Order Statuses
 
 ```http
   GET /api/rest/localisation/getOrderStatuses
@@ -220,7 +220,7 @@ The following API endpoints are available for managing localisation related data
 
 The following API endpoints are available for managing manufacturer related data:
 
-#### Get Manufacturer Details
+#### Get Manufacturer
 
 ```http
   GET /api/rest/manufacturer/getManufacturer
@@ -230,7 +230,7 @@ The following API endpoints are available for managing manufacturer related data
 | :--------   | :------- | :------------------------- |
 | `manufacturer_id`| `string` | Belirtilen üretici ID'sine sahip üreticinin ayrıntılarını alır.  |
 
-#### Get List of Manufacturers
+#### Get Manufacturers
 
 ```http
   GET /api/rest/manufacturer/getManufacturers
@@ -248,7 +248,7 @@ The following API endpoints are available for managing manufacturer related data
 
 Mağazadaki tüm üreticilerin toplam sayısını döndürür.
 
-#### Get List of Zones for a Country
+#### Delete Manufacturer
 
 ```http
   DELETE /api/rest/manufacturer/deleteManufacturer
@@ -263,7 +263,7 @@ Mağazadaki tüm üreticilerin toplam sayısını döndürür.
 
 The following API endpoints are available for managing order related data:
 
-#### Get Order Details
+#### Get Order
 
 ```http
   GET /api/rest/order/getOrder
@@ -273,7 +273,7 @@ The following API endpoints are available for managing order related data:
 | :--------   | :------- | :------------------------- |
 | `order_id`| `string` | Retrieves the details of the specified order.  |
 
-#### Get List of Orders
+#### Get Orders
 
 ```http
   GET /api/rest/order/getOrders
@@ -326,7 +326,7 @@ The following API endpoints are available for managing order related data:
 
 The following API endpoints are available for managing product related data:
 
-#### Get Product Details
+#### Get Product
 
 ```http
   GET /api/rest/product/getProduct
@@ -444,7 +444,7 @@ The following API endpoints are available for managing review related data:
 
 The following API endpoints are available for managing whishlist related data:
 
-#### Get Reviews By Product Id
+#### Get Wishlist
 
 ```http
   GET /api/rest/wishlist/getWishlist
@@ -454,7 +454,7 @@ The following API endpoints are available for managing whishlist related data:
 | :--------   | :------- | :------------------------- |
 | `customer_id`| `string` | Retrieves the wishlist of the customer with the specified customer ID. |
 
-#### Get Total Reviews By Product Id
+#### Get Total Wishlist
 
 ```http
   GET /api/rest/wishlist/getTotalWishlist
