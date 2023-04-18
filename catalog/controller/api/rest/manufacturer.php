@@ -61,6 +61,7 @@ class ControllerApiRestManufacturer extends Controller {
 	}
 
 	public function getTotalManufacturers() {
+
 		$this->load->language('api/rest');
 
 		$json = array();
@@ -68,9 +69,9 @@ class ControllerApiRestManufacturer extends Controller {
 		if (!isset($_COOKIE['api_token'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
-			$this->load->model('catalog/manufacturer');
+			$this->load->model('rest/api');
 
-			$manufacturer_total = $this->model_catalog_manufacturer->getTotalManufacturers();
+			$manufacturer_total = $this->model_rest_api->getTotalManufacturers();
 
 			if ($manufacturer_total) {
 				$json['manufacturer_total'] = $manufacturer_total;
@@ -93,6 +94,7 @@ class ControllerApiRestManufacturer extends Controller {
 		} else {
 
 			$this->load->model('catalog/manufacturer');
+			$this->load->model('rest/api');
 
 			$manufacturer_id = isset($this->request->get['manufacturer_id']) ? (int)$this->request->get['manufacturer_id'] : null;
 	
@@ -104,7 +106,7 @@ class ControllerApiRestManufacturer extends Controller {
 				if (!$manufacturer) {
 					$json['error']['warning'] = $this->language->get('error_not_found');
 				} else {
-					$this->model_catalog_manufacturer->deleteManufacturer($manufacturer_id);
+					$this->model_rest_api->deleteManufacturer($manufacturer_id);
 					$json['success'] = $this->language->get('text_success');
 				}
 			}
@@ -113,8 +115,6 @@ class ControllerApiRestManufacturer extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
-
-	
 
 
 }

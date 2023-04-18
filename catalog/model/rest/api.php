@@ -234,6 +234,20 @@ class ModelRestApi extends Model {
 		return $query->rows;
 	}
 
+	public function getTotalManufacturers() {
+		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "manufacturer");
+
+		return $query->row['total'];
+	}
+
+	public function deleteManufacturer($manufacturer_id) {
+		$this->db->query("DELETE FROM `" . DB_PREFIX . "manufacturer` WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
+		$this->db->query("DELETE FROM `" . DB_PREFIX . "manufacturer_to_store` WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
+		$this->db->query("DELETE FROM `" . DB_PREFIX . "seo_url` WHERE query = 'manufacturer_id=" . (int)$manufacturer_id . "'");
+
+		$this->cache->delete('manufacturer');
+	}
+
 	public function getOrders($data = array()) {
 
 		$sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified 
@@ -369,6 +383,19 @@ class ModelRestApi extends Model {
 		
 		return $query->rows;
 	}
+
+	public function getCustomerWishlist($customer_id) {
+        $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer_wishlist WHERE customer_id = '" . (int)$customer_id . "'");
+
+		return $query->rows;
+	}
+
+	public function getCustomerTotalWishlist($customer_id) {
+		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "customer_wishlist WHERE customer_id = '" . (int)$customer_id . "'");
+
+		return $query->row['total'];
+	}
+
 
 
 }

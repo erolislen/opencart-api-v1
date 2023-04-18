@@ -11,7 +11,7 @@ class ControllerApiRestWishlist extends Controller {
 		if (!isset($_COOKIE['api_token'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
-			$this->load->model('account/wishlist');
+			$this->load->model('rest/api');
 
 			if (isset($this->request->get['customer_id'])) {
 				$customer_id = $this->request->get['customer_id'];
@@ -19,7 +19,7 @@ class ControllerApiRestWishlist extends Controller {
 				$customer_id = 0;
 			}
 
-			$wishlist = $this->model_account_wishlist->getCustomerWishlist($customer_id);
+			$wishlist = $this->model_rest_api->getCustomerWishlist($customer_id);
 
 			if ($wishlist) {
 				$json['wishlist'] = $wishlist;
@@ -41,7 +41,7 @@ class ControllerApiRestWishlist extends Controller {
 		if (!isset($_COOKIE['api_token'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
-			$this->load->model('account/wishlist');
+			$this->load->model('rest/api');
 
 			if (isset($this->request->get['customer_id'])) {
 				$customer_id = $this->request->get['customer_id'];
@@ -49,7 +49,7 @@ class ControllerApiRestWishlist extends Controller {
 				$customer_id = 0;
 			}
 
-			$wishlist_total = $this->model_account_wishlist->getCustomerTotalWishlist($customer_id);
+			$wishlist_total = $this->model_rest_api->getCustomerTotalWishlist($customer_id);
 
 			if ($wishlist_total) {
 				$json['wishlist_total'] = $wishlist_total;

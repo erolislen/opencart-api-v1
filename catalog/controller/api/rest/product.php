@@ -229,6 +229,7 @@ class ControllerApiRestProduct extends Controller {
 		} else {
 
 			$this->load->model('catalog/product');
+			$this->load->model('rest/api');
 
 			$product_id = isset($this->request->get['product_id']) ? (int)$this->request->get['product_id'] : 0;
 	
@@ -240,7 +241,7 @@ class ControllerApiRestProduct extends Controller {
 				if (!$product) {
 					$json['error']['warning'] = $this->language->get('error_not_found');
 				} else {
-					$this->model_catalog_product->deleteProduct($product_id);
+					$this->model_rest_api->deleteProduct($product_id);
 					$json['success'] = $this->language->get('text_success');
 				}
 			}
