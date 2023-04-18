@@ -12,7 +12,7 @@ The following API endpoints are available for managing category related data:
 #### Get Category
 
 ```http
-  GET /api/rest/category
+  GET /api/rest/category/getCategory
 ```
 
 | Parameter   | Type     | Description                |
@@ -22,7 +22,7 @@ The following API endpoints are available for managing category related data:
 #### Get Categories
 
 ```http
-  GET /api/rest/categories
+  GET /api/rest/category/getCategories
 ```
 
 
@@ -35,7 +35,7 @@ The following API endpoints are available for managing category related data:
 #### Delete Category
 
 ```http
-  DELETE /api/rest/category
+  DELETE /api/rest/category/deleteCategory
 ```
 
 | Parameter    | Type     | Description                |
@@ -51,7 +51,7 @@ The following API endpoints are available for managing customer related data:
 #### Get Customer
 
 ```http
-  GET /api/rest/customer
+  GET /api/rest/customer/getCustomer
 ```
 
 | Parameter    | Type     | Description                |
