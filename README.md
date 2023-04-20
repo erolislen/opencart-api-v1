@@ -1,5 +1,5 @@
 
-## Opencart Rest API v1
+## Opencart API v1
 
 This OpenCart API has been developed to interact with OpenCart stores. The API enables you to retrieve, list, delete, and update various data such as categories, customers, currencies, countries, order statuses, manufacturers, products, reports, reviews, and wishlists in your store through different endpoints. It is designed for store owners and developers who want to integrate store data with third-party applications or software.
 
