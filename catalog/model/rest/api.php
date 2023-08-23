@@ -345,6 +345,17 @@ class ModelRestApi extends Model {
 		return $query->rows;
 	}
 
+	public function getOrderProducts($order_id) {
+		$query = $this->db->query("
+			SELECT op.*, p.sku, p.upc, p.ean, p.jan, p.isbn, p.mpn
+			FROM " . DB_PREFIX . "order_product op
+			JOIN " . DB_PREFIX . "product p ON op.product_id = p.product_id
+			WHERE op.order_id = '" . (int)$order_id . "'
+		");
+	
+		return $query->rows;
+	}
+
 	public function deleteProduct($product_id) {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_attribute WHERE product_id = '" . (int)$product_id . "'");

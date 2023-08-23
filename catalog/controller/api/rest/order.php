@@ -71,7 +71,7 @@ class ControllerApiRestOrder extends Controller {
 		if (!isset($_COOKIE['api_token'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
-			$this->load->model('checkout/order');
+			$this->load->model('rest/api');
 
 			if (isset($this->request->get['order_id'])) {
 				$order_id = $this->request->get['order_id'];
@@ -79,7 +79,7 @@ class ControllerApiRestOrder extends Controller {
 				$order_id = 0;
 			}
 
-			$order_product = $this->model_checkout_order->getOrderProducts($order_id);
+			$order_product = $this->model_rest_api->getOrderProducts($order_id);
 
 			if ($order_product) {
 				$json['product'] = $order_product;
