@@ -305,9 +305,8 @@ class ModelRestApi extends Model {
 
 	public function getOrder($order_id) {
 		$this->load->model('checkout/order');
-		$orderModel = $this->{'model_checkout_order'};
 	
-		$orderData = $orderModel->getOrder($order_id);
+		$orderData = $this->model_checkout_order->getOrder($order_id);
 	
 		if (is_array($orderData)) {
 			$orderData['products'] = $this->getOrderProducts($order_id);
