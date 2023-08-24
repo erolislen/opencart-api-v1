@@ -307,8 +307,8 @@ class ModelRestApi extends Model {
 		$this->load->model('checkout/order');
 	
 		$orderData = $this->model_checkout_order->getOrder($order_id);
-	
 		if (is_array($orderData)) {
+			$orderData['shipping_cost'] = $this->getShippingCost($order_id);
 			$orderData['products'] = $this->getOrderProducts($order_id);
 		}
 	
@@ -474,6 +474,14 @@ class ModelRestApi extends Model {
 		return $query->row['total'];
 	}
 
-
+	public function getShippingCost($order_id) {
+		$shipping_query = $this->db->query("SELECT value FROM `" . DB_PREFIX . "order_total` WHERE order_id = '" . (int)$order_id . "' AND code = 'shipping'");
+	
+		if ($shipping_query->num_rows) {
+			return $shipping_query->row['value'];
+		} else {
+			return 0;
+		}
+	}
 
 }
