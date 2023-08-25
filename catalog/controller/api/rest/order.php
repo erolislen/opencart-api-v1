@@ -6,7 +6,7 @@ class ControllerApiRestOrder extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('rest/api');
@@ -36,7 +36,7 @@ class ControllerApiRestOrder extends Controller {
 	
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('rest/api');
@@ -68,7 +68,7 @@ class ControllerApiRestOrder extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('rest/api');
@@ -97,7 +97,7 @@ class ControllerApiRestOrder extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('checkout/order');
@@ -132,7 +132,7 @@ class ControllerApiRestOrder extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('checkout/order');
@@ -161,7 +161,7 @@ class ControllerApiRestOrder extends Controller {
 
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('checkout/order');

@@ -6,7 +6,7 @@ class ControllerApiRestLocalisation extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('localisation/country');
@@ -35,7 +35,7 @@ class ControllerApiRestLocalisation extends Controller {
 	
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('rest/api');
@@ -65,7 +65,7 @@ class ControllerApiRestLocalisation extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('localisation/currency');
@@ -96,7 +96,7 @@ class ControllerApiRestLocalisation extends Controller {
 	
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('rest/api');
@@ -125,7 +125,7 @@ class ControllerApiRestLocalisation extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('localisation/zone');
@@ -154,7 +154,7 @@ class ControllerApiRestLocalisation extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('localisation/zone');
@@ -183,7 +183,7 @@ class ControllerApiRestLocalisation extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('localisation/language');
@@ -213,7 +213,7 @@ class ControllerApiRestLocalisation extends Controller {
 	
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('rest/api');
@@ -242,7 +242,7 @@ class ControllerApiRestLocalisation extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('localisation/order_status');
@@ -272,7 +272,7 @@ class ControllerApiRestLocalisation extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('rest/api');
