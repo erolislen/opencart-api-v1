@@ -1,22 +1,33 @@
 <?php
-class ControllerApiRestOrder extends Controller {
 
-	public function getOrder() {
+class ControllerApiRestOrder extends Controller
+{
+	private function initializeApiResponse()
+	{
+		$json = [];
 		$this->load->language('api/rest');
 
-		$json = array();
-
 		if (!isset($this->session->data['api_id'])) {
-			$json['error'] = $this->language->get('error_permission');
-		} else {
+			$json['error']['warning'] = $this->language->get('error_permission');
+		}
+
+		return $json;
+	}
+
+	private function sendResponse($json)
+	{
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+	}
+
+	public function getOrder()
+	{
+		$json = $this->initializeApiResponse();
+
+		if (!isset($json['error'])) {
 			$this->load->model('rest/api');
 
-			if (isset($this->request->get['order_id'])) {
-				$order_id = $this->request->get['order_id'];
-			} else {
-				$order_id = 0;
-			}
-
+			$order_id = isset($this->request->get['order_id']) ? $this->request->get['order_id'] : 0;
 			$order_info = $this->model_rest_api->getOrder($order_id);
 
 			if ($order_info) {
@@ -26,58 +37,45 @@ class ControllerApiRestOrder extends Controller {
 			}
 		}
 
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
+		$this->sendResponse($json);
 	}
 
-	public function getOrders() { 
+	public function getOrders()
+	{
+		$json = $this->initializeApiResponse();
 
-		$this->load->language('api/rest');
-	
-		$json = array();
-	
-		if (!isset($this->session->data['api_id'])) {
-			$json['error']['warning'] = $this->language->get('error_permission');
-		} else {
+		if (!isset($json['error'])) {
 			$this->load->model('rest/api');
 
 			$data = array(
 				'limit' => isset($this->request->get['limit']) ? (int)$this->request->get['limit'] : 500,
 				'order_status' => isset($this->request->get['order_status']) ? (int)$this->request->get['order_status'] : 1,
 				'orderby' => isset($this->request->get['orderby']) ? $this->request->get['orderby'] : 'o.order_id',
-				'sort' => isset($this->request->get['sort']) ? $this->request->get['sort']: 'DESC',
-				'start_date' => isset($this->request->get['start_date']) ? $this->request->get['start_date']: null,
-				'end_date' => isset($this->request->get['end_date']) ? $this->request->get['end_date']: null,
-			 );
+				'sort' => isset($this->request->get['sort']) ? $this->request->get['sort'] : 'DESC',
+				'start_date' => isset($this->request->get['start_date']) ? $this->request->get['start_date'] : null,
+				'end_date' => isset($this->request->get['end_date']) ? $this->request->get['end_date'] : null,
+			);
 
-			 $orders = $this->model_rest_api->getOrders($data);
+			$orders = $this->model_rest_api->getOrders($data);
 
-			 if ($orders) {
+			if ($orders) {
 				$json['orders'] = $orders;
 			} else {
 				$json['error'] = $this->language->get('error_not_found');
 			}
 		}
-	
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
+
+		$this->sendResponse($json);
 	}
 
-	public function getOrderProducts() {
-		$this->load->language('api/rest');
+	public function getOrderProducts()
+	{
+		$json = $this->initializeApiResponse();
 
-		$json = array();
-
-		if (!isset($this->session->data['api_id'])) {
-			$json['error'] = $this->language->get('error_permission');
-		} else {
+		if (!isset($json['error'])) {
 			$this->load->model('rest/api');
 
-			if (isset($this->request->get['order_id'])) {
-				$order_id = $this->request->get['order_id'];
-			} else {
-				$order_id = 0;
-			}
+			$order_id = isset($this->request->get['order_id']) ? $this->request->get['order_id'] : 0;
 
 			$order_product = $this->model_rest_api->getOrderProducts($order_id);
 
@@ -88,33 +86,20 @@ class ControllerApiRestOrder extends Controller {
 			}
 		}
 
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
+		$this->sendResponse($json);
 	}
 
-	public function getOrderOptions() {
-		$this->load->language('api/rest');
+	public function getOrderOptions()
+	{
+		$json = $this->initializeApiResponse();
 
-		$json = array();
-
-		if (!isset($this->session->data['api_id'])) {
-			$json['error'] = $this->language->get('error_permission');
-		} else {
+		if (!isset($json['error'])) {
 			$this->load->model('checkout/order');
 
-			if (isset($this->request->get['order_id'])) {
-				$order_id = $this->request->get['order_id'];
-			} else {
-				$order_id = 0;
-			}
+			$order_id = isset($this->request->get['order_id']) ? $this->request->get['order_id'] : 0;
+			$order_product_id = isset($this->request->get['order_product_id']) ? $this->request->get['order_product_id'] : 0;
 
-			if (isset($this->request->get['order_product_id'])) {
-				$order_product_id = $this->request->get['order_product_id'];
-			} else {
-				$order_product_id = 0;
-			}
-
-			$order_options = $this->model_checkout_order->getOrderOptions($order_id,$order_product_id);
+			$order_options = $this->model_checkout_order->getOrderOptions($order_id, $order_product_id);
 
 			if ($order_options) {
 				$json['order_options'] = $order_options;
@@ -123,25 +108,17 @@ class ControllerApiRestOrder extends Controller {
 			}
 		}
 
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
+		$this->sendResponse($json);
 	}
 
-	public function getOrderTotals() {
-		$this->load->language('api/rest');
+	public function getOrderTotals()
+	{
+		$json = $this->initializeApiResponse();
 
-		$json = array();
-
-		if (!isset($this->session->data['api_id'])) {
-			$json['error'] = $this->language->get('error_permission');
-		} else {
+		if (!isset($json['error'])) {
 			$this->load->model('checkout/order');
 
-			if (isset($this->request->get['order_id'])) {
-				$order_id = $this->request->get['order_id'];
-			} else {
-				$order_id = 0;
-			}
+			$order_id = isset($this->request->get['order_id']) ? $this->request->get['order_id'] : 0;
 
 			$order_total = $this->model_checkout_order->getOrderTotals($order_id);
 
@@ -152,22 +129,18 @@ class ControllerApiRestOrder extends Controller {
 			}
 		}
 
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
+		$this->sendResponse($json);
 	}
 
-	public function deleteOrder() {
-		$this->load->language('api/rest');
+	public function deleteOrder()
+	{
+		$json = $this->initializeApiResponse();
 
-		$json = array();
-	
-		if (!isset($this->session->data['api_id'])) {
-			$json['error']['warning'] = $this->language->get('error_permission');
-		} else {
+		if (!isset($json['error'])) {
 			$this->load->model('checkout/order');
 
 			$order_id = isset($this->request->get['order_id']) ? (int)$this->request->get['order_id'] : null;
-	
+
 			if (!$order_id) {
 				$json['error']['warning'] = $this->language->get('error_not_found');
 			} else {
@@ -181,11 +154,28 @@ class ControllerApiRestOrder extends Controller {
 				}
 			}
 		}
-		
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
+
+		$this->sendResponse($json);
 	}
 
+	public function editOrderStatus()
+	{
+		$json = $this->initializeApiResponse();
 
+		if (!isset($json['error'])) {
+			$this->load->model('checkout/order');
 
+			$order_id = isset($this->request->post['order_id']) ? $this->request->post['order_id'] : null;
+			$order_status_id = isset($this->request->post['order_status_id']) ? $this->request->post['order_status_id'] : null;
+
+			if ($order_id && $order_status_id) {
+				$this->model_checkout_order->addOrderHistory($order_id, $order_status_id);
+				$json['success'] = $this->language->get('text_success');
+			} else {
+				$json['error']['warning'] = $this->language->get('error_not_found');
+			}
+		}
+
+		$this->sendResponse($json);
+	}
 }
