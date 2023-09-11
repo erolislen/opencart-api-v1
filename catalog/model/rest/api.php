@@ -359,9 +359,13 @@ class ModelRestApi extends Model {
 
 	public function getOrderProducts($order_id) {
 		$query = $this->db->query("
-			SELECT op.*, p.sku, p.upc, p.ean, p.jan, p.isbn, p.mpn
+			SELECT 
+				op.*, 
+				oo.value AS option_value,
+				p.sku, p.upc, p.ean, p.jan, p.isbn, p.mpn
 			FROM " . DB_PREFIX . "order_product op
 			JOIN " . DB_PREFIX . "product p ON op.product_id = p.product_id
+			LEFT JOIN " . DB_PREFIX . "order_option oo ON op.order_product_id = oo.order_product_id AND op.order_id = oo.order_id
 			WHERE op.order_id = '" . (int)$order_id . "'
 		");
 	
