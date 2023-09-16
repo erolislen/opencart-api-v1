@@ -8,7 +8,7 @@ class ControllerApiRestReview extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('catalog/review');
@@ -38,7 +38,7 @@ class ControllerApiRestReview extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('catalog/review');

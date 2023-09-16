@@ -303,6 +303,18 @@ class ModelRestApi extends Model {
 		$this->cache->delete('manufacturer');
 	}
 
+	public function getOrder($order_id) {
+		$this->load->model('checkout/order');
+	
+		$orderData = $this->model_checkout_order->getOrder($order_id);
+		if (is_array($orderData)) {
+			$orderData['shipping_cost'] = $this->getShippingCost($order_id);
+			$orderData['products'] = $this->getOrderProducts($order_id);
+		}
+	
+		return $orderData;
+	}
+
 	public function getOrders($data = array()) {
 
 		$sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified 
@@ -341,6 +353,21 @@ class ModelRestApi extends Model {
 		}
 	
 		$query = $this->db->query($sql);
+	
+		return $query->rows;
+	}
+
+	public function getOrderProducts($order_id) {
+		$query = $this->db->query("
+			SELECT 
+				op.*, 
+				oo.value AS option_value,
+				p.sku, p.upc, p.ean, p.jan, p.isbn, p.mpn
+			FROM " . DB_PREFIX . "order_product op
+			JOIN " . DB_PREFIX . "product p ON op.product_id = p.product_id
+			LEFT JOIN " . DB_PREFIX . "order_option oo ON op.order_product_id = oo.order_product_id AND op.order_id = oo.order_id
+			WHERE op.order_id = '" . (int)$order_id . "'
+		");
 	
 		return $query->rows;
 	}
@@ -451,6 +478,14 @@ class ModelRestApi extends Model {
 		return $query->row['total'];
 	}
 
-
+	public function getShippingCost($order_id) {
+		$shipping_query = $this->db->query("SELECT value FROM `" . DB_PREFIX . "order_total` WHERE order_id = '" . (int)$order_id . "' AND code = 'shipping'");
+	
+		if ($shipping_query->num_rows) {
+			return $shipping_query->row['value'];
+		} else {
+			return 0;
+		}
+	}
 
 }

@@ -5,7 +5,7 @@ class ControllerApiRestCategory extends Controller {
 		$this->load->language('api/category');
 		
 		$json = array();
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 			if (isset($this->request->get['category_id'])) {
@@ -71,7 +71,7 @@ class ControllerApiRestCategory extends Controller {
 	
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 
@@ -113,7 +113,7 @@ class ControllerApiRestCategory extends Controller {
 
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('catalog/category');

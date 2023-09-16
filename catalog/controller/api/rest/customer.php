@@ -6,7 +6,7 @@ class ControllerApiRestCustomer extends Controller {
 	
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 			if (isset($this->request->get['customer_id'])) {
@@ -48,7 +48,7 @@ class ControllerApiRestCustomer extends Controller {
 	
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 
@@ -86,7 +86,7 @@ class ControllerApiRestCustomer extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('account/customer');
@@ -115,7 +115,7 @@ class ControllerApiRestCustomer extends Controller {
 
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 
@@ -149,7 +149,7 @@ class ControllerApiRestCustomer extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('account/customer_group');
@@ -178,7 +178,7 @@ class ControllerApiRestCustomer extends Controller {
 	
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 

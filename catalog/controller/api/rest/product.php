@@ -8,7 +8,7 @@ class ControllerApiRestProduct extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('rest/api');
@@ -38,7 +38,7 @@ class ControllerApiRestProduct extends Controller {
 	
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('rest/api');
@@ -70,7 +70,7 @@ class ControllerApiRestProduct extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('catalog/product');
@@ -100,7 +100,7 @@ class ControllerApiRestProduct extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('catalog/product');
@@ -130,7 +130,7 @@ class ControllerApiRestProduct extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('catalog/product');
@@ -160,7 +160,7 @@ class ControllerApiRestProduct extends Controller {
 
 		$json = array();
 
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('catalog/product');
@@ -186,7 +186,7 @@ class ControllerApiRestProduct extends Controller {
 	
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 			$this->load->model('rest/api');
@@ -224,7 +224,7 @@ class ControllerApiRestProduct extends Controller {
 
 		$json = array();
 	
-		if (!isset($_COOKIE['api_token'])) {
+		if (!isset($this->session->data['api_id'])) {
 			$json['error']['warning'] = $this->language->get('error_permission');
 		} else {
 
